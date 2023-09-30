@@ -22,6 +22,7 @@ management:
     health:
       show-details: always
 
+
 resilience4j:
   circuitbreaker:
     instances:
@@ -40,3 +41,8 @@ resilience4j:
 
 
 
+  retry:
+    instances:
+      RatingHotelRetry:
+        max-attempts: 3
+        wait-duration: 2s
