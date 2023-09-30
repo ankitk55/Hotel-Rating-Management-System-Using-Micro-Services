@@ -15,6 +15,5 @@ public interface RatingService {
     @GetMapping("/rating/user/{userId}")
     List<Rating> getRatings(@PathVariable Long userId);
 
-    @PostMapping("/rating")
-     Rating addRating(@RequestBody Rating rating);
+
 }

@@ -69,9 +69,5 @@ public class UserService {
         return user;
     }
 
-    public Rating addRating(Rating rating) {
-      return   ratingService.addRating(rating);
 
-
-    }
 }
