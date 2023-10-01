@@ -4,6 +4,7 @@ import com.Ankit.UserMicroService.model.Rating;
 import com.Ankit.UserMicroService.model.UserEntity;
 import com.Ankit.UserMicroService.service.UserService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ public class UserController {
 @GetMapping("{userId}")
 @Retry(name = "RatingHotelRetry",fallbackMethod = "ratingHotelFallBack")
 //@CircuitBreaker(name = "RatingHotelBreaker",fallbackMethod = "ratingHotelFallBack")
+//@RateLimiter(name = "User-RateLimiter",fallbackMethod ="ratingHotelFallBack" )
     public ResponseEntity<UserEntity> findById(@PathVariable Long userId){
         retrycount++;
         logger.info("retry count : "+retrycount);
